@@ -6,11 +6,11 @@
     <title>نظام الأوردرات</title>
     <style>
         * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
-        body { background-color: #f4f1ea; color: #333; padding: 20px; }
-        .container { max-width: 900px; margin: auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h1 { text-align: center; color: #6b4226; margin-bottom: 20px; }
-        .main-nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; }
-        .btn { padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 15px; transition: 0.3s; }
+        body { background-color: #f4f1ea; color: #333; padding: 15px; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #6b4226; margin-bottom: 20px; font-size: 24px; }
+        .main-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .btn { padding: 12px 18px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s; }
         .btn-primary { background: #6b4226; color: white; }
         .btn-primary:hover { background: #52311b; }
         .btn-secondary { background: #d97724; color: white; }
@@ -19,16 +19,16 @@
         .btn-success:hover { background: #219150; }
         .btn-danger { background: #c0392b; color: white; }
         
-        .section { display: none; background: #faf8f5; padding: 20px; border-radius: 10px; border: 1px solid #e0d8ce; }
+        .section { display: none; background: #faf8f5; padding: 15px; border-radius: 10px; border: 1px solid #e0d8ce; }
         .active { display: block; }
         
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
         
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin-top: 15px; max-height: 400px; overflow-y: auto; padding-left: 5px; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 10px; max-height: 350px; overflow-y: auto; padding-left: 5px; }
         .menu-item { background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; }
-        .menu-item input[type="number"] { width: 70px; padding: 5px; }
+        .menu-item input[type="number"] { width: 75px; padding: 6px; font-size: 14px; text-align: center; }
         
         .box-section { background: #fff3e6; padding: 15px; border-radius: 8px; border: 1px dashed #d97724; margin-top: 15px; }
         
@@ -59,38 +59,38 @@
         <h2>بيانات العميل</h2>
         <div class="form-group">
             <label>اسم العميل (إجباري) *</label>
-            <input type="text" id="cust-name" required>
+            <input type="text" id="cust-name" required placeholder="ادخل اسم العميل">
         </div>
         <div class="form-group">
             <label>رقم التليفون (اختياري)</label>
-            <input type="tel" id="cust-phone">
+            <input type="tel" id="cust-phone" placeholder="01xxxxxxxxx">
         </div>
         <div class="form-group">
             <label>العنوان (اختياري)</label>
-            <input type="text" id="cust-address">
+            <input type="text" id="cust-address" placeholder="عنوان العميل">
         </div>
         <div class="form-group">
             <label>موعد التسليم (اختياري)</label>
             <input type="datetime-local" id="cust-delivery">
         </div>
 
-        <button class="btn btn-secondary" style="width: 100%; margin-top: 10px;" onclick="toggleMenuSection()">اختيار الأوردر / الأصناف</button>
+        <button type="button" class="btn btn-secondary" style="width: 100%; margin-top: 15px; padding: 14px; font-size: 16px;" onclick="toggleMenuSection()">▼ اختيار الأوردر / الأصناف</button>
 
         <!-- قائمة الأصناف -->
         <div id="menu-container" style="display: none; margin-top: 15px;">
-            <h3>الأنواع والشوكلاتات (سعر الكيلو)</h3>
+            <h3 style="color:#6b4226;">الأنواع والشوكلاتات (سعر الكيلو)</h3>
             <div class="menu-grid" id="menu-regular"></div>
 
-            <h3 style="margin-top: 20px;">منيو الهيلثي - زبدة نيوزيلاندي (سعر الكيلو)</h3>
+            <h3 style="margin-top: 20px; color:#6b4226;">منيو الهيلثي - زبدة نيوزيلاندي (سعر الكيلو)</h3>
             <div class="menu-grid" id="menu-nz"></div>
 
-            <h3 style="margin-top: 20px;">منيو الهيلثي - زبدة فيرن (سعر الكيلو)</h3>
+            <h3 style="margin-top: 20px; color:#6b4226;">منيو الهيلثي - زبدة فيرن (سعر الكيلو)</h3>
             <div class="menu-grid" id="menu-fern"></div>
 
             <!-- علبة مشكل -->
             <div class="box-section">
                 <h3>إضافة علبة مشكل</h3>
-                <p style="font-size: 13px; color: #666; margin-bottom: 10px;">اختر الأصناف المقترحة للعلبة وسيحسب السعر بناءً على متوسط الأسعار ووزن العلبة:</p>
+                <p style="font-size: 13px; color: #666; margin-bottom: 10px;">اختر الأصناف للعلبة وسيحسب السعر بناءً على متوسط الأسعار والوزن:</p>
                 <div class="form-group">
                     <label>وزن العلبة الواحدة (بالكيلو):</label>
                     <input type="number" id="box-weight" step="0.1" value="1">
@@ -103,7 +103,7 @@
                 <div class="menu-grid" id="menu-box-items" style="max-height: 200px;"></div>
             </div>
 
-            <button class="btn btn-primary" style="margin-top: 15px; width: 100%;" onclick="calculateInvoice()">حساب وسحب الفاتورة</button>
+            <button type="button" class="btn btn-primary" style="margin-top: 15px; width: 100%; padding: 14px;" onclick="calculateInvoice()">حساب وسحب الفاتورة</button>
         </div>
 
         <!-- المعاينة والفاتورة -->
@@ -112,7 +112,7 @@
             <div id="invoice-details"></div>
             <div id="invoice-items-list"></div>
             <h4 style="text-align: left; color: #c0392b; margin-top: 10px;" id="invoice-total"></h4>
-            <button class="btn btn-success" id="save-btn" style="width: 100%; margin-top: 15px;" onclick="saveOrder()">حفظ الأوردر بالسحابة ☁️</button>
+            <button type="button" class="btn btn-success" id="save-btn" style="width: 100%; margin-top: 15px; padding: 12px;" onclick="saveOrder()">حفظ الأوردر بالسحابة ☁️</button>
         </div>
     </div>
 
@@ -127,7 +127,7 @@
         <h2>تجميع الكميات المطلوبة</h2>
         <p>اختر الأوردرات التي تريد تجميع إجمالي الأصناف والكميات لها:</p>
         <div id="aggregate-checkboxes" style="margin: 15px 0;"></div>
-        <button class="btn btn-success" onclick="calculateAggregation()">تجميع الكميات (بالكيلو)</button>
+        <button type="button" class="btn btn-success" onclick="calculateAggregation()">تجميع الكميات (بالكيلو)</button>
 
         <div id="aggregate-result" class="summary-box" style="display: none;">
             <h3>إجمالي المطلوب تجهيزه من كل صنف:</h3>
@@ -137,7 +137,6 @@
 </div>
 
 <script>
-// رابط قاعدة بيانات Firebase الخاصة بك
 const FIREBASE_URL = "https://orders-system-26fd8-default-rtdb.firebaseio.com/orders";
 
 const menuData = {
@@ -210,18 +209,21 @@ function initMenu() {
     
     const allItems = [...menuData.regular, ...menuData.nz, ...menuData.fern];
     const boxContainer = document.getElementById('menu-box-items');
-    boxContainer.innerHTML = '';
-    allItems.forEach((item) => {
-        boxContainer.innerHTML += `
-            <div class="menu-item">
-                <span><input type="checkbox" class="box-item-check" data-name="${item.name}" data-price="${item.price}"> ${item.name}</span>
-            </div>
-        `;
-    });
+    if (boxContainer) {
+        boxContainer.innerHTML = '';
+        allItems.forEach((item) => {
+            boxContainer.innerHTML += `
+                <div class="menu-item">
+                    <span><input type="checkbox" class="box-item-check" data-name="${item.name}" data-price="${item.price}"> ${item.name}</span>
+                </div>
+            `;
+        });
+    }
 }
 
 function renderCategory(containerId, items, prefix) {
     const container = document.getElementById(containerId);
+    if (!container) return;
     container.innerHTML = '';
     items.forEach((item, index) => {
         container.innerHTML += `
@@ -243,7 +245,11 @@ function showSection(sectionId) {
 
 function toggleMenuSection() {
     const menu = document.getElementById('menu-container');
-    menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+    if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'block';
+    } else {
+        menu.style.display = 'none';
+    }
 }
 
 function calculateInvoice() {
@@ -253,7 +259,7 @@ function calculateInvoice() {
     const delivery = document.getElementById('cust-delivery').value;
 
     if (!name) {
-        alert('برجاء إدخال اسم العميل');
+        alert('برجاء إدخال اسم العميل أولاً');
         return;
     }
 
@@ -338,7 +344,6 @@ function calculateInvoice() {
     document.getElementById('invoice-preview').style.display = 'block';
 }
 
-// حفظ الأوردر في Firebase Cloud
 async function saveOrder() {
     if (!currentInvoiceData) return;
     const saveBtn = document.getElementById('save-btn');
@@ -366,7 +371,6 @@ async function saveOrder() {
     }
 }
 
-// جلب الأوردرات من Firebase
 async function fetchOrdersFromCloud() {
     try {
         const response = await fetch(`${FIREBASE_URL}.json`);
@@ -379,7 +383,6 @@ async function fetchOrdersFromCloud() {
     }
 }
 
-// عرض الأوردرات المحفوظة
 async function loadSavedOrders() {
     const container = document.getElementById('orders-list-container');
     container.innerHTML = '<div class="loading-text">جاري تحميل الأوردرات من السحابة... ⏳</div>';
@@ -413,14 +416,13 @@ async function loadSavedOrders() {
         html += `
                 </ul>
                 <h4 style="margin-top: 8px; color: #6b4226;">الإجمالي: ${ord.totalPrice} ج.م</h4>
-                <button class="btn btn-danger" style="padding: 5px 10px; margin-top: 5px;" onclick="deleteOrder('${key}')">حذف الأوردر من السحابة</button>
+                <button type="button" class="btn btn-danger" style="padding: 5px 10px; margin-top: 5px;" onclick="deleteOrder('${key}')">حذف الأوردر من السحابة</button>
             </div>
         `;
     }
     container.innerHTML = html;
 }
 
-// حذف الأوردر من السحابة
 async function deleteOrder(key) {
     if (!confirm('هل أنت تأكد من حذف هذا الأوردر من كافة الموبايلات؟')) return;
 
@@ -432,7 +434,6 @@ async function deleteOrder(key) {
     }
 }
 
-// تجهيز الأوردرات للتجميع
 async function loadAggregateSelection() {
     const container = document.getElementById('aggregate-checkboxes');
     container.innerHTML = '<div class="loading-text">جاري التحميل... ⏳</div>';
@@ -460,7 +461,6 @@ async function loadAggregateSelection() {
     container.innerHTML = html;
 }
 
-// حساب وتجميع الأصناف
 function calculateAggregation() {
     const selectedKeys = Array.from(document.querySelectorAll('.agg-check:checked')).map(cb => cb.value);
     
@@ -468,11 +468,4 @@ function calculateAggregation() {
 
     selectedKeys.forEach(key => {
         const ord = globalOrdersData[key];
-        if (ord && ord.items) {
-            ord.items.forEach(it => {
-                if (it.isBox && it.boxDetails) {
-                    it.boxDetails.forEach(bd => {
-                        totals[bd.name] = (totals[bd.name] || 0) + bd.weightKg;
-                    });
-                } else {
-                    tot
+        if (ord && ord.item
